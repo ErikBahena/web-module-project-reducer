@@ -20,6 +20,9 @@ const calculateResult = (num1, num2, operation) => {
       return num1 * num2;
     case "-":
       return num1 - num2;
+
+    default:
+      return null;
   }
 };
 
@@ -27,11 +30,12 @@ const calculateMemoryAction = (stateTotal, memoryId, currentMemory) => {
   switch (memoryId) {
     case "MC":
       return 0;
-
     case "M+":
       return stateTotal;
-
     case "MR":
+      return currentMemory;
+
+    default:
       return currentMemory;
   }
 };

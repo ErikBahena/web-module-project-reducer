@@ -7,7 +7,7 @@ import TotalDisplay from "./components/TotalDisplay";
 import CalcButton from "./components/CalcButton";
 
 // Actions
-import { addOne } from "./actions/index.js";
+// import { addOne } from "./actions/index.js";
 import { applyNumber } from "./actions/index.js";
 import { changeOperation } from "./actions/index.js";
 import { clearInput } from "./actions/index.js";
@@ -34,9 +34,9 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">
-          <img width="40px" src="./Lambda-Logo-Red.png" /> Lambda Reducer
-          Challenge
+        <a className="navbar-brand" href="/">
+          <img width="40px" src="./Lambda-Logo-Red.png" alt="Lambda Logo" />{" "}
+          Lambda Reducer Challenge
         </a>
       </nav>
 
