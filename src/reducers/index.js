@@ -23,13 +23,16 @@ const calculateResult = (num1, num2, operation) => {
   }
 };
 
-const calculateMemoryAction = (stateTotal, memoryId) => {
+const calculateMemoryAction = (stateTotal, memoryId, currentMemory) => {
   switch (memoryId) {
     case "MC":
       return 0;
 
     case "M+":
       return stateTotal;
+
+    case "MR":
+      return currentMemory;
 
     default:
       return stateTotal;
@@ -52,7 +55,11 @@ const reducer = (state, action) => {
     case APPLY_MEMORY:
       return {
         ...state,
-        memory: calculateMemoryAction(state.total, action.payload),
+        memory: calculateMemoryAction(
+          state.total,
+          action.payload,
+          state.memory
+        ),
         total:
           action.payload === "MR"
             ? calculateResult(state.total, state.memory, state.operation)
