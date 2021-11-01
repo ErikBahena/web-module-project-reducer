@@ -8,12 +8,13 @@ import CalcButton from "./components/CalcButton";
 
 // Actions
 import { addOne } from "./actions/index.js";
+import { applyNumber } from "./actions/index.js";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleAddOne = () => {
-    dispatch(addOne());
+  const handleApplyNumber = (e) => {
+    dispatch(applyNumber(+e.target.textContent));
   };
 
   return (
@@ -45,21 +46,21 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton onClick={handleAddOne} value={1} />
-              <CalcButton value={2} />
-              <CalcButton value={3} />
+              <CalcButton onClick={handleApplyNumber} value={1} />
+              <CalcButton onClick={handleApplyNumber} value={2} />
+              <CalcButton onClick={handleApplyNumber} value={3} />
             </div>
 
             <div className="row">
-              <CalcButton value={4} />
-              <CalcButton value={5} />
-              <CalcButton value={6} />
+              <CalcButton onClick={handleApplyNumber} value={4} />
+              <CalcButton onClick={handleApplyNumber} value={5} />
+              <CalcButton onClick={handleApplyNumber} value={6} />
             </div>
 
             <div className="row">
-              <CalcButton value={7} />
-              <CalcButton value={8} />
-              <CalcButton value={9} />
+              <CalcButton onClick={handleApplyNumber} value={7} />
+              <CalcButton onClick={handleApplyNumber} value={8} />
+              <CalcButton onClick={handleApplyNumber} value={9} />
             </div>
 
             <div className="row">
