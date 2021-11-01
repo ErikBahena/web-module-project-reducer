@@ -9,7 +9,7 @@ import {
 export const initialState = {
   total: 0,
   operation: "+",
-  memory: 10,
+  memory: 0,
 };
 
 const calculateResult = (num1, num2, operation) => {
@@ -33,9 +33,6 @@ const calculateMemoryAction = (stateTotal, memoryId, currentMemory) => {
 
     case "MR":
       return currentMemory;
-
-    default:
-      return stateTotal;
   }
 };
 
