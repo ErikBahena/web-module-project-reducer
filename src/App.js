@@ -9,12 +9,26 @@ import CalcButton from "./components/CalcButton";
 // Actions
 import { addOne } from "./actions/index.js";
 import { applyNumber } from "./actions/index.js";
+import { changeOperation } from "./actions/index.js";
+import { clearInput } from "./actions/index.js";
+import { applyMemory } from "./actions/index.js";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleApplyNumber = (e) => {
     dispatch(applyNumber(+e.target.textContent));
+  };
+
+  const handleChangeOperation = (e) => {
+    dispatch(changeOperation(e.target.textContent));
+  };
+
+  const handleClearTotal = () => {
+    dispatch(clearInput());
+  };
+  const handleMemoryAction = (e) => {
+    dispatch(applyMemory(e.target.textContent));
   };
 
   return (
@@ -40,9 +54,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
-              <CalcButton value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton onClick={handleMemoryAction} value={"M+"} />
+              <CalcButton onClick={handleMemoryAction} value={"MR"} />
+              <CalcButton onClick={handleMemoryAction} value={"MC"} />
             </div>
 
             <div className="row">
@@ -64,13 +78,13 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"+"} />
-              <CalcButton value={"*"} />
-              <CalcButton value={"-"} />
+              <CalcButton onClick={handleChangeOperation} value={"+"} />
+              <CalcButton onClick={handleChangeOperation} value={"*"} />
+              <CalcButton onClick={handleChangeOperation} value={"-"} />
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"} />
+              <CalcButton onClick={handleClearTotal} value={"CE"} />
             </div>
           </form>
         </div>
